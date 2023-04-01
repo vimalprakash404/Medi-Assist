@@ -1,0 +1,12 @@
+{% extends 'user/index.html' %}
+{% block content %}
+{% for i in branch %}
+<main class="container">
+    <div class="bg-light p-5 rounded">
+      <h1>{{i.name}}</h1>
+     {# <p class="lead">This example is a quick exercise to illustrate how fixed to top navbar works. As you scroll, it will remain fixed to the top of your browser’s viewport.</p> #} 
+      <a class="btn btn-lg btn-primary" href="/vtest/{{i.id}}" role="button">View test&raquo;</a>
+    </div>
+  </main>
+  {% endfor %}
+{% endblock content %}

@@ -1,0 +1,43 @@
+{% extends 'user/index.html' %}
+{% block content %}
+{%load crispy_forms_tags %}
+  <div class="modal modal-tour position-static d-block bg-secondary py-5" tabindex="-1" role="dialog" id="modalTour">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content rounded-6 shadow">
+        <div class="modal-body p-5">
+          {% if form %}
+          <div>
+            <h1 class="mb-0">Register</h1>
+            
+          </div>
+          <form method="POST">
+            {{form|crispy}}
+            {% csrf_token %}
+            <button type="submit" class="btn btn-secondary">sign up</button>
+          </form>
+          {% endif %}
+          <ul class="d-grid gap-4 my-5 list-unstyled">
+            <li class="d-flex gap-4">
+              <svg class="bi text-muted flex-shrink-0" width="48" height="48"><use xlink:href="#grid-fill"/></svg>
+              <div>
+                <h1 class="mb-0">{{i.test.name}}</h1>
+              </div>
+            </li>
+            <li class="d-flex gap-4">
+              <svg class="bi text-warning flex-shrink-0" width="48" height="48"><use xlink:href="#bookmark-star"/></svg>
+              
+            </li>
+            <li class="d-flex gap-4">
+              <svg class="bi text-primary flex-shrink-0" width="48" height="48"><use xlink:href="#film"/></svg>
+              <div>
+              
+              </div>
+            </li>
+          </ul>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}

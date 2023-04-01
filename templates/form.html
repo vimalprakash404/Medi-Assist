@@ -1,0 +1,50 @@
+{% extends 'index.html' %}
+{% load crispy_forms_tags %}
+{% block container %}
+
+<div class="container">
+    <main>
+     
+  
+      <div class="row g-5">
+        <div class="col-md-5 col-lg-4 order-md-last">
+          
+         
+          
+          {% if message %}
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{message}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          {% endif %}
+        </div>
+        <div class="col-md-7 col-lg-8">
+          <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-primary">{{title}}</span>
+          </h4>
+          <form  method="post" >
+            {%load crispy_forms_tags %}
+            {% csrf_token %}
+           {{form|crispy}}
+           <button type="submit" class="btn btn-secondary">add</button>
+            </form>
+            {% for i in testdata %}
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{i.name}}</h5>
+                    <a href="/p/{{i.id}}" class="btn btn-primary">Edit</a>
+                </div>
+            </div>
+            <br>
+            {% endfor %}
+
+           
+          
+          </div>
+        </div>
+      </div>
+    </main>
+  
+    
+  </div>
+{% endblock container %}
